@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg7ns6mb0fy3q"]
+
+[ext_resource type="PackedScene" uid="uid://c737rhmrtqr38" path="res://Swamp.tscn" id="1_dmgu4"]
+[ext_resource type="PackedScene" uid="uid://rm16k78tpqyd" path="res://Character/knight.tscn" id="2_ex641"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(472, 340)
+
+[node name="Map" parent="." instance=ExtResource("1_dmgu4")]
+position = Vector2(3, -174)
+
+[node name="Knight" parent="." instance=ExtResource("2_ex641")]
+position = Vector2(-5, -884)
+speed = 200.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Knight"]
+position = Vector2(8, 20)
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(3, -864)
+zoom = Vector2(2, 2)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
